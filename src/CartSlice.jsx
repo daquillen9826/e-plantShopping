@@ -4,6 +4,7 @@ export const CartSlice = createSlice({
   name: 'cart',
   initialState: {
     items: [], // Initialize items as an empty array
+    numOfPlantType: 0,
   },
   reducers: {
     addItem: (state, action) => {
@@ -17,9 +18,11 @@ export const CartSlice = createSlice({
           // If item does not exist, add it to the cart with quantity 1
           state.items.push({ name, image, cost, quantity: 1 });
         }
+        state.numOfPlantType += 1;
     },
     removeItem: (state, action) => {
         state.items = state.items.filter(item => item.name !== action.payload);
+        state.numOfPlantType -= 1;
     },
     updateQuantity: (state, action) => {
         const { name, quantity } = action.payload; // Destructure the product name and new quantity from the action payload
