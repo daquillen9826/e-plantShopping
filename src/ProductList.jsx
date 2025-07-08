@@ -9,7 +9,7 @@ function ProductList({ onHomeClick }) {
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
 
     const dispatch = useDispatch();
-    const cartItems = useSelector((state) => state.cart.items);
+    const cart = useSelector((state) => state.cart.items);
     const calculateTotalQuantity = () => {
         return CartItems ? CartItems.reduce((total, item) => total + item.quantity, 0) : 0;
          };
